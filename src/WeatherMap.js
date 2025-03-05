@@ -105,20 +105,58 @@ const WeatherMap = ({ darkMode }) => {
             }}>
                 {/* Search Bar */}
                 <div style={{ marginBottom: "20px" }}>
-                    <Select
-                        options={searchOptions}
-                        onInputChange={(value) => handleSearch(value)}
-                        onChange={handleSelectCity}
-                        placeholder="Search for a city..."
-                        filterOption={(candidate, input) => {
-                            const inputStr = typeof input === "string" ? input : "";
-                            return candidate.label.toLowerCase().includes(inputStr.toLowerCase());
-                        }}
-                        styles={{
-                            control: (provided) => ({ ...provided, background: darkMode ? "#444" : "#fff", color: darkMode ? "#fff" : "#000" }),
-                            singleValue: (provided) => ({ ...provided, color: darkMode ? "#fff" : "#000" }),
-                        }}
-                    />
+                <Select
+    options={searchOptions}
+    onInputChange={(value) => handleSearch(value)}
+    onChange={handleSelectCity}
+    placeholder="Search for a city..."
+    filterOption={(candidate, input) => {
+        const inputStr = typeof input === "string" ? input : "";
+        return candidate.label.toLowerCase().includes(inputStr.toLowerCase());
+    }}
+    styles={{
+        control: (provided) => ({
+            ...provided,
+            background: darkMode ? "#444" : "#fff", // Dark or Light background
+            color: darkMode ? "#fff" : "#000", // Dark or Light text color
+            borderRadius: "8px", // Rounded corners
+            padding: "5px 10px", // Padding inside the input
+            borderColor: darkMode ? "#555" : "#ccc", // Border color based on theme
+            boxShadow: darkMode ? "0px 0px 8px rgba(255, 255, 255, 0.1)" : "0px 0px 8px rgba(0, 0, 0, 0.1)", 
+            fontSize: "14px", 
+            transition: "all 0.3s ease", 
+        }),
+        singleValue: (provided) => ({
+            ...provided,
+            color: darkMode ? "#fff" : "#000", 
+        }),
+        option: (provided, state) => ({
+            ...provided,
+            backgroundColor: state.isSelected ? (darkMode ? "#555" : "#ddd") : state.isFocused ? (darkMode ? "#666" : "#f0f0f0") : "",
+            color: darkMode ? "#fff" : "#000",
+            padding: "10px",
+            cursor: "pointer",
+            transition: "background-color 0.3s ease", 
+        }),
+        dropdownIndicator: (provided) => ({
+            ...provided,
+            color: darkMode ? "#fff" : "#000", 
+        }),
+        clearIndicator: (provided) => ({
+            ...provided,
+            color: darkMode ? "#fff" : "#000", 
+        }),
+        input: (provided) => ({
+            ...provided,
+            color: darkMode ? "#fff" : "#000",
+        }),
+        placeholder: (provided) => ({
+            ...provided,
+            color: darkMode ? "#aaa" : "#888", 
+        }),
+    }}
+/>
+
                 </div>
 
                 {/* Weather Details */}
