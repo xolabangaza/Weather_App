@@ -9,16 +9,28 @@ const App = () => {
     };
 
     return (
-        <div style={{ background: darkMode ? "#333" : "#fff", color: darkMode ? "#fff" : "#000", minHeight: "100vh" }}>
-            {/* <h1 style={{ textAlign: "center", padding: "10px", background: darkMode ? "#111" : "#282c34", color: "white" }}>
-                Weather Map App
-            </h1> */}
+        <div style={{ background: darkMode ? "#333" : "#fff", color: darkMode ? "#fff" : "#000", minHeight: "100vh", display: "flex", flexDirection: "column" }}>
+            {/* Dark Mode Toggle Button */}
             <button 
                 onClick={toggleDarkMode} 
-                style={{ margin: "10px", padding: "8px", cursor: "pointer", background: darkMode ? "#555" : "#ddd" }}
+                style={{
+                    margin: "20px", 
+                    padding: "10px 20px", 
+                    cursor: "pointer", 
+                    background: darkMode ? "#444" : "#fff", 
+                    color: darkMode ? "#fff" : "#333", 
+                    border:darkMode ? "1px solid #fff": " 1px solid #000", 
+                    borderRadius: "30px", 
+                    fontSize: "16px",
+                    boxShadow: darkMode ? "0px 0px 8px rgba(255, 255, 255, 0.2)" : "0px 0px 8px rgba(0, 0, 0, 0.2)",
+                    transition: "all 0.3s ease",
+                    alignSelf: "center" // Centers the button
+                }}
             >
-                Toggle Dark Mode
+                {darkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
             </button>
+
+            {/* WeatherMap Component */}
             <WeatherMap darkMode={darkMode} />
         </div>
     );
