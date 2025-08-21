@@ -2,7 +2,7 @@
 
 WeatherMap Demo App
 
-A React-based interactive weather map application that displays real-time weather information based on geolocation, city search, or map clicks. Built as part of my ChatInc interview demo, this app demonstrates my front-end development skills, API integration, and interactive UI design.
+A React-based interactive weather map application that displays real-time weather information based on geolocation, city search, or map clicks, this app demonstrates my front-end development skills, API integration, and interactive UI design.
 
 Table of Contents
 
